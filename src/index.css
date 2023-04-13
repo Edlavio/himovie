@@ -26,7 +26,8 @@
   --yellow-300: #ffe14c;
   --yellow-500: #ffdd33;
 
-  --container: 1rem 5rem;
+  --container: 1rem 4rem;
+  --container-sm: 1rem 1rem;
 }
 
 ::-webkit-scrollbar {

@@ -44,6 +44,7 @@
 
 .genres {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
 }
 
@@ -90,7 +91,6 @@
 
 @media screen and (max-width: 768px) {
   .moviebox {
-    padding: 3rem 1rem;
     flex-direction: column;
   }
 
@@ -106,7 +106,7 @@
 
 @media screen and (max-width: 550px) {
   .poster {
-    height: 210px;
+    height: 220px;
   }
 
 }

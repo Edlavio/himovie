@@ -21,3 +21,9 @@ header h1 {
 .header > a span {
   color: var(--red-500);
 }
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: var(--container-sm);
+  }
+}

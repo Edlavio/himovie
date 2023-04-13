@@ -20,6 +20,8 @@
   font-size: 1rem;
   font-weight: 500;
   white-space: nowrap;
+  color: var(--white);
+  transition: color 0.1s ease-in-out;
 }
 
 .cardDetails a:hover {
@@ -33,6 +35,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 4px;
 }
 
 .cardInfo:nth-child(2) span svg {

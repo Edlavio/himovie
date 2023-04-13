@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import styles from "./Movie.module.css";
 import { CalendarBlank, Clock, Star } from "phosphor-react";
 import Carousel from "../components/Carousel";
+import useDocumentTitle from "../hooks/useDocumentTitle";
 
 const movieURL = import.meta.env.VITE_MOVIE;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -34,7 +35,7 @@ export default function Movie() {
   function formatNumber(number) {
     return number.toString().replace(/^(\d+\.\d)\d+$/, "$1");
   }
-
+  
   const {
     title,
     genres,
@@ -45,6 +46,8 @@ export default function Movie() {
     vote_average,
     overview,
   } = movie;
+
+  useDocumentTitle(title);
 
   return (
     <section>

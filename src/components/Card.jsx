@@ -5,7 +5,7 @@ import styles from "./Card.module.css";
 
 const imageURL = import.meta.env.VITE_IMG;
 
-export default function Card({ movie}) {
+export default function Card({ movie, cardClass, imageClass, titleClass, cardInfoClass }) {
   function extractYear(text) {
     const regex = /\d{4}/;
     const year = text.match(regex);
@@ -23,26 +23,26 @@ export default function Card({ movie}) {
   };
  
   return (
-    <article className={styles.card}>
+    <article className={`${styles.card} ${cardClass}`}>
       <Link to={`/movie/${movie.id}`} onClick={handleResetScroll}>
         <img
           src={imageURL + movie.poster_path}
           alt={movie.title}
-          className={styles.cardImage}
+          className={`${styles.cardImage} ${imageClass}`}
         />
       </Link>
       <div className={styles.cardDetails}>
         <Link
-          className={styles.title}
+          className={`${styles.title} ${titleClass}`}
           title={movie.title}
           to={`/movie/${movie.id}`}
           onClick={handleResetScroll}
         >
           {movie.title}
         </Link>
-        <div className={styles.cardInfo}>
+        <div className={`${styles.cardInfo} ${cardInfoClass}`}>
           <span title={`Ano de lançamento ${year}`}>{year}</span>
-          <span className="flex items-center gap-1" title={`Média de votos ${movie.vote_average}`}>
+          <span title={`Média de votos ${movie.vote_average}`}>
             <Star size={14} weight="fill" className="text-yellow-500" />
             {formatNumber(`${movie.vote_average}`)}
           </span>

@@ -7,7 +7,7 @@
   justify-content: space-between;
   align-items: center;
   font-size: 1rem;
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
 .footer a {
@@ -46,7 +46,7 @@
 
 @media screen and (max-width: 768px) {
   .footer {
-    padding: 1rem 1rem;
+    padding: var(--container-sm);
     display: flex;
     justify-content: space-between;
   }

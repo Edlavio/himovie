@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import Card from "../components/Card";
 
 import styles from "./Search.module.css";
+import useDocumentTitle from "../hooks/useDocumentTitle";
 
 const apiKey = import.meta.env.VITE_API_KEY;
 const searchURL = import.meta.env.VITE_SEARCH;
@@ -22,10 +23,12 @@ export default function Search() {
 
   useEffect(() => {
     const searchWithQuery = `${searchURL}?${apiKey}&query=${query}&language=pt-PT`;
-
+    
     getSearchedMovies(searchWithQuery);
   }, [query]);
 
+  useDocumentTitle(query);
+  
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>
@@ -35,7 +38,7 @@ export default function Search() {
 
       <section>
         {movies.length > 0 &&
-          movies.map((movie) => <Card className={styles.card} movie={movie} key={movie.id} />)}
+          movies.map((movie) => <Card cardClass={styles.card} movie={movie} key={movie.id} />)}
       </section>
     </div>
   );
