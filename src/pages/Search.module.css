@@ -1,0 +1,33 @@
+.container {
+  max-width: 1000px;
+  margin: 3rem auto;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
+
+.query {
+  color: var(--yellow-300);
+  margin-left: 4px;
+}
+
+.container section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    max-width: 85%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 90%;
+  }
+}

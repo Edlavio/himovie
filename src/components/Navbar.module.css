@@ -1,0 +1,23 @@
+.header {
+  background-color: var(--gray-800);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--container);
+  width: 100%;
+  position: relative;
+}
+
+header h1 {
+  font-size: 2.25rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+}
+
+.header > a {
+  color: var(--white);
+}
+
+.header > a span {
+  color: var(--red-500);
+}

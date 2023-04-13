@@ -1,0 +1,46 @@
+.card {
+  width: 200px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.cardDetails {
+  margin: 0 4px;
+  overflow: hidden;
+}
+
+.cardDetails a {
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.cardDetails a:hover {
+  color: var(--red-300);
+}
+
+.cardInfo {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--gray-100);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardInfo:nth-child(2) span svg {
+  color: var(--yellow-500);
+  margin-right: 4px;
+}
+
+.cardInfo:nth-child(2) span {
+  display: flex;
+  align-items: center;
+}
