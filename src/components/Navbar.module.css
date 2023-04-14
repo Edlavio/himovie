@@ -1,10 +1,10 @@
 .header {
-  background-color: var(--gray-800);
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: var(--container);
-  width: 100%;
+  background-color: var(--gray-800);
   position: relative;
 }
 
@@ -14,12 +14,22 @@ header h1 {
   font-weight: bold;
 }
 
-.header > a {
+.header>a {
   color: var(--white);
 }
 
-.header > a span {
+.header>a span {
   color: var(--red-500);
+}
+
+.toggleButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  background-color: var(--gray-500);
 }
 
 @media screen and (max-width: 768px) {

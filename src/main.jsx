@@ -8,8 +8,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Movie from './pages/Movie';	
 import Search from './pages/Search';
-import ErrorPage from './pages/ErrorPage';
-import PageTitle from './hooks/useDocumentTitle';
+import NotFound from './pages/NotFound';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -19,7 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route exact path="/" element={<Home/>} />
           <Route path="/movie/:id" element={<Movie/>} />
           <Route path="/search" element={<Search/>} />
-          <Route path="*" element={<ErrorPage/>} children={Search} />
+          <Route path="*" element={<NotFound/>} />
         </Route>
       </Routes>
     </BrowserRouter>

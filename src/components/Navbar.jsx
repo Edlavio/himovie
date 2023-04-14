@@ -13,7 +13,7 @@ export default function Navbar() {
 
       <nav className={styles.nav}>
         <ul>
-          <li></li>
+          <li className={styles.toggleButton}><Moon size={24}/></li>
         </ul>
       </nav>
     </header>
