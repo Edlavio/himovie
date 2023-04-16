@@ -46,7 +46,7 @@ export default function Home() {
             </button>
             <input
               type="text"
-              placeholder="Digita o nome do filme ou série"
+              placeholder="Digita o nome do filme"
               onChange={(e) => setSearch(e.target.value)}
               value={search}
               ref={inputRef}

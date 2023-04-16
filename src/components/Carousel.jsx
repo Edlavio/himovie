@@ -31,7 +31,7 @@ export default function Carousel() {
         tag="section"
         options={{
           pagination: false,
-          width: "85vw",
+          width: "1200px",
           perPage: 5,
           perMove: 1,
           gap: "1rem",
@@ -40,32 +40,29 @@ export default function Carousel() {
           breakpoints: {
             1200: {
               perPage: 4,
+              width: "90%"
             },
             1024: {
               perPage: 3,
             },
-            800: {
-              width: "90vw",
-            },
             768: {
+              width: "80%",
               perPage: 2,
-              padding: "6rem",
+              padding: "5rem",
             },
             650: {
-              padding: "4rem",
+              padding: "3rem",
             },
             600: {
+              width: "70%",
               perPage: 1,
-              padding: "6rem",
+              padding: "5rem",
             },
-            450: {
+            500: {
               padding: "3rem",
             },
             400: {
-              padding: "4rem",
-            },
-            350: {
-              padding: "2rem",
+              padding: "1rem",
             },
           },
         }}

@@ -2,7 +2,11 @@ import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 import { Moon } from "phosphor-react";
 
-export default function Navbar() {
+export default function Navbar({onThemeChange}) {
+  function handleToogle () {
+    onThemeChange()
+  };
+
   return (
     <header className={styles.header}>
       <Link to="/">
@@ -10,12 +14,6 @@ export default function Navbar() {
           <span>Hi</span>Movie
         </h1>
       </Link>
-
-      <nav className={styles.nav}>
-        <ul>
-          <li className={styles.toggleButton}><Moon size={24}/></li>
-        </ul>
-      </nav>
     </header>
   );
 }

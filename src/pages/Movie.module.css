@@ -29,6 +29,7 @@
   width: 100%;
   object-fit: contain;
   height: 375px;
+  flex: 40%;
 }
 
 .container {
@@ -100,6 +101,7 @@
 
   .poster {
     height: 250px;
+    flex: auto;
   }
 
 }

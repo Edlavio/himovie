@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import styles from "./Card.module.css";
 
-const imageURL = import.meta.env.VITE_IMG;
+const imgURL = import.meta.env.VITE_IMG;
 
 export default function Card({ movie, cardClass, imageClass, titleClass, cardInfoClass }) {
   function extractYear(text) {
@@ -26,7 +26,7 @@ export default function Card({ movie, cardClass, imageClass, titleClass, cardInf
     <article className={`${styles.card} ${cardClass}`}>
       <Link to={`/movie/${movie.id}`} onClick={handleResetScroll}>
         <img
-          src={imageURL + movie.poster_path}
+          src={`${imgURL}w500/${movie.poster_path}`}
           alt={movie.title}
           className={`${styles.cardImage} ${imageClass}`}
         />
@@ -41,8 +41,8 @@ export default function Card({ movie, cardClass, imageClass, titleClass, cardInf
           {movie.title}
         </Link>
         <div className={`${styles.cardInfo} ${cardInfoClass}`}>
-          <span title={`Ano de lançamento ${year}`}>{year}</span>
-          <span title={`Média de votos ${movie.vote_average}`}>
+          <span title={`Ano de lançamento: ${year}`}>{year}</span>
+          <span title={`Média de votos: ${movie.vote_average}`}>
             <Star size={14} weight="fill" className="text-yellow-500" />
             {formatNumber(`${movie.vote_average}`)}
           </span>

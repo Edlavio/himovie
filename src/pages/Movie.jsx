@@ -1,7 +1,9 @@
+import styles from "./Movie.module.css";
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import styles from "./Movie.module.css";
 import { CalendarBlank, Clock, Star } from "phosphor-react";
+
 import Carousel from "../components/Carousel";
 import useDocumentTitle from "../hooks/useDocumentTitle";
 
@@ -21,7 +23,7 @@ export default function Movie() {
   };
 
   useEffect(() => {
-    const moviePath = `${movieURL}${id}?${apiKey}&language=pt-PT`;
+    const moviePath = `${movieURL}${id}?${apiKey}&language=pt-BR`;
 
     getMovie(moviePath);
   }, [id]);
@@ -35,7 +37,7 @@ export default function Movie() {
   function formatNumber(number) {
     return number.toString().replace(/^(\d+\.\d)\d+$/, "$1");
   }
-  
+
   const {
     title,
     genres,
@@ -54,14 +56,14 @@ export default function Movie() {
       <div className={styles.wrapper}>
         <article className={styles.backdrop}>
           <img
-            src={imgURL + backdrop_path}
-            alt={`${movie.title} backdrop Image`}
+            src={`${imgURL}original/${backdrop_path}`}
+            alt={`${movie.title} Imagem de fundo`}
           />
         </article>
         <article className={styles.moviebox}>
           <img
             className={styles.poster}
-            src={imgURL + poster_path}
+            src={`${imgURL}w500/${poster_path}`}
             alt={title}
           />
           <div>
@@ -70,24 +72,26 @@ export default function Movie() {
               <div className={styles.genres}>
                 {genres &&
                   genres.map((genre) => (
-                    <span key={genre.id}>{genre.name}</span>
+                    <span key={genre.id} title={`Genêro: ${genre.name}`}>
+                      {genre.name}
+                    </span>
                   ))}
               </div>
               <div className={styles.movieDetails}>
-                <span>
+                <span title={`Duração: ${runtime} minutos`}>
                   <Clock size={20} />
                   {runtime} min
                 </span>
-                <span>
+                <span title={`Ano de lançamento: ${extractYear(`${release_date}`)}`}>
                   <CalendarBlank size={20} />
                   {extractYear(`${release_date}`)}
                 </span>
-                <span>
+                <span title={`Média de votos: ${movie.vote_average}`}>
                   <Star weight="fill" size={20} />
                   {formatNumber(`${vote_average}`)}
                 </span>
               </div>
-              <span>Lançado: {release_date}</span>
+              <span title={`Ano de lançamento: ${release_date}`}>Lançado: {release_date}</span>
               <span>Director: </span>
               <span>Elenco: </span>
               <div className={styles.sinopse}>
