@@ -12,7 +12,7 @@ export default function Home() {
   const [search, setSearch] = useState("");
   const inputRef = useRef(null);
   const navigate = useNavigate();
-  useDocumentTitle('HiMovie | Feito para amantes de filmes');
+  useDocumentTitle('Feito para amantes de filmes');
 
   useEffect(() => {
     function handleKeyDown(event) {
