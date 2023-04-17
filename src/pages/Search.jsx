@@ -27,7 +27,7 @@ export default function Search() {
     getSearchedMovies(searchWithQuery);
   }, [query]);
 
-  useDocumentTitle(query);
+  useDocumentTitle(`Pesquisar: ${query}`);
   
   return (
     <div className={styles.container}>

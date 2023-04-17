@@ -6,10 +6,13 @@ import { MagnifyingGlass } from "phosphor-react";
 import Carousel from "../components/Carousel";
 import { useNavigate } from "react-router-dom";
 
+import useDocumentTitle from "../hooks/useDocumentTitle";
+
 export default function Home() {
   const [search, setSearch] = useState("");
   const inputRef = useRef(null);
   const navigate = useNavigate();
+  useDocumentTitle('HiMovie | Feito para amantes de filmes');
 
   useEffect(() => {
     function handleKeyDown(event) {

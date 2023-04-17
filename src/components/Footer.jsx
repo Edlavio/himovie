@@ -16,7 +16,7 @@ export default function Footer() {
         <span>
           <GithubLogo size={24} weight="fill" />
         </span>
-        Made with &#x1F49C; by Edlavio
+        Made with ❤️ by Edlavio
       </a>
       <button onClick={handleClick}>
         <CaretUp size={24} />
