@@ -68,7 +68,7 @@ export default function Carousel() {
         }}
         className={styles.carousel}
       >
-        {popularMovies.length > 0 &&
+        {popularMovies &&
           popularMovies.map((movie) => (
             <SplideSlide key={movie.id}>
               <Card movie={movie} />

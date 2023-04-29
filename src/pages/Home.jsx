@@ -7,12 +7,14 @@ import Carousel from "../components/Carousel";
 import { useNavigate } from "react-router-dom";
 
 import useDocumentTitle from "../hooks/useDocumentTitle";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function Home() {
   const [search, setSearch] = useState("");
   const inputRef = useRef(null);
   const navigate = useNavigate();
-  useDocumentTitle('Feito para amantes de filmes');
+  useDocumentTitle("Feito para amantes de filmes");
 
   useEffect(() => {
     function handleKeyDown(event) {
@@ -32,35 +34,37 @@ export default function Home() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    if(!search) return
+    if (!search) return;
 
-    navigate(`/search?q=${search}`)
-    setSearch("")
+    navigate(`/search?q=${search}`);
+    setSearch("");
   }
 
   return (
-    <section>
-      <article className={styles.bannerContainer}>
-        <div>
-          <h2>Encontre os seus filmes em um só lugar</h2>
-          <form onSubmit={handleSubmit} className={styles.searchForm}>
-            <button>
-              <MagnifyingGlass size={20} />
-            </button>
-            <input
-              type="text"
-              placeholder="Digita o nome do filme"
-              onChange={(e) => setSearch(e.target.value)}
-              value={search}
-              ref={inputRef}
-            />
-          </form>
-        </div>
-      </article>
+    <>
+      <Header />
+      <section>
+        <article className={styles.bannerContainer}>
+          <div>
+            <h2>Encontre os seus filmes em um só lugar</h2>
+            <form onSubmit={handleSubmit} className={styles.searchForm}>
+              <button title="Botão de pesquisa">
+                <MagnifyingGlass size={20} />
+              </button>
+              <input
+                type="text"
+                placeholder="Digita o nome do filme"
+                onChange={(e) => setSearch(e.target.value)}
+                value={search}
+                ref={inputRef}
+              />
+            </form>
+          </div>
+        </article>
 
-      <article>
-        <Carousel />
-      </article>
-    </section>
+          <Carousel />
+      </section>
+      <Footer />
+    </>
   );
 }

@@ -1,5 +1,5 @@
 .bannerContainer {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../assets/hero.jpg) center center / cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../assets/hero.jpg) center center / cover no-repeat;
   height: 600px;
   margin-bottom: 3rem;
 }
@@ -22,11 +22,13 @@
 
 .searchForm {
   width: 100%;
-  background-color: var(--gray-800);
+  background-color: var(--gray-900);
   padding: 0 1rem;
   height: 3.375rem;
   border-radius: 8px;
   display: flex;
+  border: 1px solid var(--gray-700);
+  gap: 0.25rem;
 }
 
 .searchForm input {
@@ -41,7 +43,7 @@
 }
 
 .searchForm:focus-within {
-  outline: 1px solid var(--gray-200);
+  outline: 1px solid var(--gray-500);
 }
 
 .searchForm button {

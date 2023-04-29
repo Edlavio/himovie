@@ -3,8 +3,8 @@
   display: flex;
   align-items: center;
   padding: var(--container);
-  background-color: var(--gray-800);
-  position: relative;
+  background-color: var(--gray-900);
+  border-bottom: 1px solid var(--gray-800);
 }
 
 header h1 {
@@ -13,11 +13,11 @@ header h1 {
   font-weight: bold;
 }
 
-.header>a {
+.header > a {
   color: var(--white);
 }
 
-.header>a span {
+.header > a span {
   color: var(--red-500);
 }
 

@@ -5,10 +5,10 @@
   justify-content: space-between;
   align-items: center;
   background: transparent;
-  border-top: 2px solid var(--gray-700);
+  border-top: 1px solid var(--gray-800);
   padding: var(--container);
   margin-top: 3rem;
-  font-size: 1rem;
+  font-size: 0.875rem;
   bottom: 0;
 }
 
@@ -24,15 +24,7 @@
   transition: color 0.2s ease-in-out;
 }
 
-.footer a span {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  color: var(--gray-100);
-  background-color: var(--gray-800);
-}
-
-.footer a span {
+.footer a {
   display: flex;
   align-items: center;
   justify-content: center;

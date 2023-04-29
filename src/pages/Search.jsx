@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import Card from "../components/Card";
-
-import styles from "./Search.module.css";
 import useDocumentTitle from "../hooks/useDocumentTitle";
+
+import Card from "../components/Card";
+import styles from "./Search.module.css";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const apiKey = import.meta.env.VITE_API_KEY;
 const searchURL = import.meta.env.VITE_SEARCH;
@@ -23,23 +25,29 @@ export default function Search() {
 
   useEffect(() => {
     const searchWithQuery = `${searchURL}?${apiKey}&query=${query}&language=pt-PT`;
-    
+
     getSearchedMovies(searchWithQuery);
   }, [query]);
 
   useDocumentTitle(`Pesquisar: ${query}`);
-  
-  return (
-    <div className={styles.container}>
-      <h2 className={styles.title}>
-        Resultados para:
-        <span className={styles.query}>{query}</span>
-      </h2>
 
-      <section>
-        {movies.length > 0 &&
-          movies.map((movie) => <Card cardClass={styles.card} movie={movie} key={movie.id} />)}
-      </section>
-    </div>
+  return (
+    <>
+      <Header/>
+      <div className={styles.container}>
+        <h2 className={styles.title}>
+          Resultados para:
+          <span className={styles.query}>{query}</span>
+        </h2>
+
+        <section>
+          {movies.length > 0 &&
+            movies.map((movie) => (
+              <Card cardClass={styles.card} movie={movie} key={movie.id} />
+            ))}
+        </section>
+      </div>
+      <Footer/>
+    </>
   );
 }

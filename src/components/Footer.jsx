@@ -1,10 +1,11 @@
 import styles from "./Footer.module.css";
-import { CaretUp, GithubLogo } from "phosphor-react";
+import { IoLogoGithub, IoChevronUpSharp } from "react-icons/io5";
+import { RxCaretUp } from "react-icons/rx";
 
 export default function Footer() {
   function handleClick() {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  }
 
   return (
     <footer className={styles.footer}>
@@ -12,15 +13,14 @@ export default function Footer() {
         href="https://github.com/Edlavio"
         target="_blank"
         className={styles.link}
+        title="Meu perfil do Github: Edlavio"
       >
-        <span>
-          <GithubLogo size={24} weight="fill" />
-        </span>
+        <IoLogoGithub size={24} />
         Made with ❤️ by Edlavio
       </a>
-      <button onClick={handleClick}>
-        <CaretUp size={24} />
+      <button title="Voltar para o topo botão" onClick={handleClick}>
+        <IoChevronUpSharp size={20} />
       </button>
     </footer>
   );
-};
+}

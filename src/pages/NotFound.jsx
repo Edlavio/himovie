@@ -4,16 +4,17 @@ import Image from "../assets/404.svg";
 import useDocumentTitle from "../hooks/useDocumentTitle";
 
 export default function ErrorPage() {
-  useDocumentTitle('Erro 404 Página não encontrada')
+  useDocumentTitle("Erro 404 Página não encontrada");
 
   return (
     <section className={styles.container}>
-      <img src={Image}/>
+      <img src={Image} />
       <div>
-        <h1>Oops!</h1>
-        <p>Verifique sua URL ou volte para a página de início do HiMovie.</p>
+        <span>
+          Verifique sua URL ou volte para a página de início do HiMovie.
+        </span>
+        <Link to="/">Voltar</Link>
       </div>
-      <Link to="/">Voltar</Link>
     </section>
   );
 }

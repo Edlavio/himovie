@@ -1,11 +1,13 @@
 import styles from "./Movie.module.css";
+import {IoCalendarClearOutline, IoStar, IoTimeOutline} from 'react-icons/io5';
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { CalendarBlank, Clock, Star } from "phosphor-react";
+import useDocumentTitle from "../hooks/useDocumentTitle";
 
 import Carousel from "../components/Carousel";
-import useDocumentTitle from "../hooks/useDocumentTitle";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const movieURL = import.meta.env.VITE_MOVIE;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -52,58 +54,68 @@ export default function Movie() {
   useDocumentTitle(title);
 
   return (
-    <section>
-      <div className={styles.wrapper}>
-        <article className={styles.backdrop}>
-          <img
-            src={`${imgURL}original/${backdrop_path}`}
-            alt={`${movie.title} Imagem de fundo`}
-          />
-        </article>
-        <article className={styles.moviebox}>
-          <img
-            className={styles.poster}
-            src={`${imgURL}w500/${poster_path}`}
-            alt={title}
-          />
-          <div>
-            <div className={styles.container}>
-              <h2>{title}</h2>
-              <div className={styles.genres}>
-                {genres &&
-                  genres.map((genre) => (
-                    <span key={genre.id} title={`Genêro: ${genre.name}`}>
-                      {genre.name}
-                    </span>
-                  ))}
-              </div>
-              <div className={styles.movieDetails}>
-                <span title={`Duração: ${runtime} minutos`}>
-                  <Clock size={20} />
-                  {runtime} min
+    <>
+      <Header />
+      <section>
+        <div className={styles.wrapper}>
+          <article className={styles.backdrop}>
+            <img
+              src={`${imgURL}original/${backdrop_path}`}
+              alt={`${movie.title} Imagem de fundo`}
+            />
+          </article>
+          <article className={styles.moviebox}>
+            <img
+              className={styles.poster}
+              src={`${imgURL}w500/${poster_path}`}
+              alt={title}
+            />
+            <div>
+              <div className={styles.container}>
+                <h2>{title}</h2>
+                <div className={styles.genres}>
+                  {genres &&
+                    genres.map((genre) => (
+                      <span key={genre.id} title={`Genêro: ${genre.name}`}>
+                        {genre.name}
+                      </span>
+                    ))}
+                </div>
+                <div className={styles.movieDetails}>
+                  <span title={`Duração: ${runtime} minutos`}>
+                    <IoTimeOutline size={20} />
+                    {runtime} min
+                  </span>
+                  <span
+                    title={`Ano de lançamento: ${extractYear(
+                      `${release_date}`
+                    )}`}
+                  >
+                    <IoCalendarClearOutline size={20} />
+                    {extractYear(`${release_date}`)}
+                  </span>
+                  <span title={`Média de votos: ${movie.vote_average}`}>
+                    <IoStar weight="fill" size={20} />
+                    {formatNumber(`${vote_average}`)}
+                  </span>
+                </div>
+                <span title={`Ano de lançamento: ${release_date}`}>
+                  Lançado: {release_date}
                 </span>
-                <span title={`Ano de lançamento: ${extractYear(`${release_date}`)}`}>
-                  <CalendarBlank size={20} />
-                  {extractYear(`${release_date}`)}
-                </span>
-                <span title={`Média de votos: ${movie.vote_average}`}>
-                  <Star weight="fill" size={20} />
-                  {formatNumber(`${vote_average}`)}
-                </span>
-              </div>
-              <span title={`Ano de lançamento: ${release_date}`}>Lançado: {release_date}</span>
-              <span>Director: </span>
-              <span>Elenco: </span>
-              <div className={styles.sinopse}>
-                <h3>Sinopse</h3>
-                <p>{overview}</p>
+                <span>Director: </span>
+                <span>Elenco: </span>
+                <div className={styles.sinopse}>
+                  <h3>Sinopse</h3>
+                  <p>{overview}</p>
+                </div>
               </div>
             </div>
-          </div>
-        </article>
-      </div>
+          </article>
+        </div>
 
-      <Carousel />
-    </section>
+        <Carousel />
+      </section>
+      <Footer />
+    </>
   );
 }

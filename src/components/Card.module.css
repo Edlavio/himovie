@@ -5,10 +5,19 @@
   flex-direction: column;
 }
 
+.imageContainer {
+  overflow: hidden;
+}
+
 .cardImage {
   width: 100%;
   height: 100%;
   border-radius: 8px;
+  transition: 500ms all ease-in-out;
+}
+
+.cardImage:hover {
+  transform: scale(1.1);
 }
 
 .cardDetails {
