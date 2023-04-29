@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "./NotFound.module.css";
+import styles from "./Error.module.css";
 import Image from "../assets/404.svg";
 import useDocumentTitle from "../hooks/useDocumentTitle";
 

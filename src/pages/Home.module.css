@@ -43,7 +43,7 @@
 }
 
 .searchForm:focus-within {
-  outline: 1px solid var(--gray-500);
+  outline: 1px solid var(--gray-300);
 }
 
 .searchForm button {

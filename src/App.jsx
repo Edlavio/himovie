@@ -7,4 +7,4 @@ export function App() {
       <Outlet />
     </div>
   );
-}
+};

@@ -1,5 +1,5 @@
 import styles from "./Movie.module.css";
-import {IoCalendarClearOutline, IoStar, IoTimeOutline} from 'react-icons/io5';
+import { IoCalendarClearOutline, IoStar, IoTimeOutline } from "react-icons/io5";
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -8,6 +8,7 @@ import useDocumentTitle from "../hooks/useDocumentTitle";
 import Carousel from "../components/Carousel";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { useMovie, useFetch } from "../hooks/useFetch";
 
 const movieURL = import.meta.env.VITE_MOVIE;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -15,20 +16,21 @@ const imgURL = import.meta.env.VITE_IMG;
 
 export default function Movie() {
   const { id } = useParams();
-  const [movie, setMovie] = useState("");
 
-  const getMovie = async (url) => {
-    const res = await fetch(url);
-    const data = await res.json();
+  const { movie } = useMovie(`${movieURL}${id}?${apiKey}&language=pt-BR`);
 
-    setMovie(data);
-  };
+  const { item } = useFetch(
+    `${movieURL}${id}/credits?${apiKey}&language=pt-BR`
+  );
 
-  useEffect(() => {
-    const moviePath = `${movieURL}${id}?${apiKey}&language=pt-BR`;
+  const productionList = item.crew;
+  const prodution =
+    productionList &&
+    Object.values(productionList).filter((d) => d.job === "Director");
 
-    getMovie(moviePath);
-  }, [id]);
+  const actorsList = item.cast;
+  const actor =
+    actorsList && Object.values(actorsList).filter((a) => a.order < 4);
 
   function extractYear(text) {
     const regex = /\d{4}/;
@@ -99,12 +101,30 @@ export default function Movie() {
                     {formatNumber(`${vote_average}`)}
                   </span>
                 </div>
-                <span title={`Ano de lançamento: ${release_date}`}>
-                  Lançado: {release_date}
-                </span>
-                <span>Director: </span>
-                <span>Elenco: </span>
-                <div className={styles.sinopse}>
+                <div className={styles.creditos}>
+                  <span title={`Ano de lançamento: ${release_date}`}>
+                    Lançado: {release_date}
+                  </span>
+                  <span>
+                    Director:
+                    {prodution &&
+                      Object.values(prodution).map((d) => (
+                        <span className={styles.director} key={d.id} title={`Director: ${d.name}`}>
+                          {d.name}
+                        </span>
+                      ))}
+                  </span>
+                  <span>
+                    Elenco:
+                    {actor &&
+                      Object.values(actor).map((a) => (
+                        <span className={styles.actor} key={a.id} title={`Actor: ${a.name}`}>
+                          {a.name},
+                        </span>
+                      ))}
+                  </span>
+                </div>
+                <div className={styles.sinopse} title='Sinopse'>
                   <h3>Sinopse</h3>
                   <p>{overview}</p>
                 </div>

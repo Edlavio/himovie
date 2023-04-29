@@ -14,8 +14,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(2px);
-  opacity: 0.6;
+  filter: blur(1px);
+  opacity: 0.5;
 }
 
 .moviebox {
@@ -78,14 +78,30 @@
   align-items: center;
   font-size: 1rem;
   font-weight: 500;
+  font-weight: 500;
 }
 
 .movieDetails span svg {
   color: var(--yellow-300);
 }
 
+.creditos {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  gap: 0.5rem;
+}
+
+.actor,
+.director {
+  margin-left: 4px;
+  font-size: 1rem;
+  line-height: 150%;
+}
+
 .sinopse p {
-  color: var(--gray-100);
+  color: var(--white);
+  line-height: 150%;
 }
 
 @media screen and (max-width: 1024px) {

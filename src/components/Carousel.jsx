@@ -5,25 +5,15 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 
 import Card from "./Card";
+import { useMovie } from "../hooks/useFetch";
 
 const movieURL = import.meta.env.VITE_MOVIE;
 const apiKey = import.meta.env.VITE_API_KEY;
 
 export default function Carousel() {
-  const [popularMovies, setPopularMovies] = useState([]);
+  const { movie } = useMovie(`${movieURL}popular?${apiKey}&language=pt-PT`);
 
-  const getPopularMovies = async (url) => {
-    const res = await fetch(url);
-    const data = await res.json();
-
-    setPopularMovies(data.results);
-  };
-
-  useEffect(() => {
-    const popularMoviesURL = `${movieURL}popular?${apiKey}&language=pt-PT`;
-
-    getPopularMovies(popularMoviesURL);
-  }, []);
+  const movieList = movie.results;
 
   return (
     <>
@@ -40,7 +30,7 @@ export default function Carousel() {
           breakpoints: {
             1200: {
               perPage: 4,
-              width: "90%"
+              width: "90%",
             },
             1024: {
               perPage: 3,
@@ -68,8 +58,8 @@ export default function Carousel() {
         }}
         className={styles.carousel}
       >
-        {popularMovies &&
-          popularMovies.map((movie) => (
+        {movieList &&
+          movieList.map((movie) => (
             <SplideSlide key={movie.id}>
               <Card movie={movie} />
             </SplideSlide>

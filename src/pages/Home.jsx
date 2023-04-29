@@ -1,14 +1,13 @@
-import { useEffect, useRef, useState } from "react";
-
 import styles from "./Home.module.css";
-import { MagnifyingGlass } from "phosphor-react";
 
-import Carousel from "../components/Carousel";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import Carousel from "../components/Carousel";
 import useDocumentTitle from "../hooks/useDocumentTitle";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { IoSearchOutline } from "react-icons/io5";
 
 export default function Home() {
   const [search, setSearch] = useState("");
@@ -49,7 +48,7 @@ export default function Home() {
             <h2>Encontre os seus filmes em um só lugar</h2>
             <form onSubmit={handleSubmit} className={styles.searchForm}>
               <button title="Botão de pesquisa">
-                <MagnifyingGlass size={20} />
+                <IoSearchOutline size={20} />
               </button>
               <input
                 type="text"

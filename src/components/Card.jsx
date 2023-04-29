@@ -1,7 +1,6 @@
-import { Star } from "phosphor-react";
 import { Link } from "react-router-dom";
-
 import styles from "./Card.module.css";
+import { IoStar } from "react-icons/io5";
 
 const imgURL = import.meta.env.VITE_IMG;
 
@@ -12,6 +11,7 @@ export default function Card({
   titleClass,
   cardInfoClass,
 }) {
+
   function extractYear(text) {
     const regex = /\d{4}/;
     const year = text.match(regex);
@@ -25,7 +25,8 @@ export default function Card({
   const year = extractYear(movie.release_date);
 
   function handleResetScroll() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // window.scrollTo({ top: 0, behavior: "smooth" });
+    console.log('Card Action')
   }
 
   return (
@@ -51,7 +52,7 @@ export default function Card({
         <div className={`${styles.cardInfo} ${cardInfoClass}`}>
           <span title={`Ano de lançamento: ${year}`}>{year}</span>
           <span title={`Média de votos: ${movie.vote_average}`}>
-            <Star size={14} weight="fill" className="text-yellow-500" />
+            <IoStar size={14} weight="fill" className="text-yellow-500" />
             {formatNumber(`${movie.vote_average}`)}
           </span>
         </div>
