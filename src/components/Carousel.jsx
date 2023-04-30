@@ -5,16 +5,17 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 
 import Card from "./Card";
-import { useMovie } from "../hooks/useFetch";
+import useFetch from "../hooks/useFetch";
 
 const movieURL = import.meta.env.VITE_MOVIE;
 const apiKey = import.meta.env.VITE_API_KEY;
 
-export default function Carousel() {
-  const { movie } = useMovie(`${movieURL}popular?${apiKey}&language=pt-PT`);
+export default function Carousel({URL}) {
+  const url = URL ? URL : `${movieURL}popular?${apiKey}&language=pt-PT`;
+  const { movie } = useFetch(url);
 
   const movieList = movie.results;
-
+  
   return (
     <>
       <Splide

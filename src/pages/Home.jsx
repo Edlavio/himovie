@@ -13,6 +13,7 @@ export default function Home() {
   const [search, setSearch] = useState("");
   const inputRef = useRef(null);
   const navigate = useNavigate();
+
   useDocumentTitle("Feito para amantes de filmes");
 
   useEffect(() => {
@@ -37,7 +38,7 @@ export default function Home() {
 
     navigate(`/search?q=${search}`);
     setSearch("");
-  }
+  };
 
   return (
     <>

@@ -1,36 +1,30 @@
 import styles from "./Movie.module.css";
 import { IoCalendarClearOutline, IoStar, IoTimeOutline } from "react-icons/io5";
 
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useDocumentTitle from "../hooks/useDocumentTitle";
 
 import Carousel from "../components/Carousel";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { useMovie, useFetch } from "../hooks/useFetch";
+import useFetch from "../hooks/useFetch";
 
 const movieURL = import.meta.env.VITE_MOVIE;
 const apiKey = import.meta.env.VITE_API_KEY;
 const imgURL = import.meta.env.VITE_IMG;
 
-export default function Movie() {
+export default function Movie({URL}) {
   const { id } = useParams();
-
-  const { movie } = useMovie(`${movieURL}${id}?${apiKey}&language=pt-BR`);
-
-  const { item } = useFetch(
-    `${movieURL}${id}/credits?${apiKey}&language=pt-BR`
-  );
+  const { movie } = useFetch(`${movieURL}${id}?${apiKey}&language=pt-BR`);
+  const { movie: item } = useFetch(`${movieURL}${id}/credits?${apiKey}&language=pt-BR`);
 
   const productionList = item.crew;
-  const prodution =
-    productionList &&
-    Object.values(productionList).filter((d) => d.job === "Director");
+  const prodution = productionList && Object.values(productionList).filter((d) => d.job === "Director");
 
   const actorsList = item.cast;
-  const actor =
-    actorsList && Object.values(actorsList).filter((a) => a.order < 4);
+  const actor = actorsList && Object.values(actorsList).filter((a) => a.order < 4);
+
+  const recommended = `${movieURL}${id}/recommendations?${apiKey}&language=pt-BR`;
 
   function extractYear(text) {
     const regex = /\d{4}/;
@@ -133,7 +127,8 @@ export default function Movie() {
           </article>
         </div>
 
-        <Carousel />
+        <Carousel URL={recommended}/>
+        {console.log(URL)}
       </section>
       <Footer />
     </>
