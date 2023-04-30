@@ -25,13 +25,13 @@ export default function Card({
   const year = extractYear(movie.release_date);
 
   function handleResetScroll() {
-    // window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo(0,0);
     console.log('Card Action')
   }
 
   return (
     <article className={`${styles.card} ${cardClass}`}>
-      <Link to={`/movie/${movie.id}`} onClick={handleResetScroll}>
+      <Link to={`/movies/${movie.id}`} onClick={handleResetScroll}>
         <div className={styles.imageContainer}>
           <img
             src={`${imgURL}w500/${movie.poster_path}`}
@@ -44,7 +44,7 @@ export default function Card({
         <Link
           className={`${styles.title} ${titleClass}`}
           title={movie.title}
-          to={`/movie/${movie.id}`}
+          to={`/movies/${movie.id}`}
           onClick={handleResetScroll}
         >
           {movie.title}
