@@ -16,7 +16,7 @@
 
 ## Overview
 
-![HiMovie](https://us-east-1.tixte.net/uploads/edlavio.tixte.co/himovie.gif)
+[![HiMovie](https://user-images.githubusercontent.com/79201879/236576700-0ab2afc0-cf6b-4cc2-bb7a-c6578eac1f40.png)](https://himovie1.vercel.app/)
 
 ## 🛠️Built With
 
