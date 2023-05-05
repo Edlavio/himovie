@@ -21,4 +21,4 @@ export default function useFetch(url) {
   }, [url]);
 
   return { movie, isLoading };
-}
+};

@@ -4,6 +4,7 @@ import useFetch from "../../hooks/useFetch";
 
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import CardSkeleton from "../Skeleton/Skeleton";
 
 const movieURL = import.meta.env.VITE_MOVIE;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -14,6 +15,7 @@ export default function Carousel({ URL, titulo, category }) {
   const { movie, isLoading } = useFetch(url);
 
   const movieList = movie.results;
+
   const categoryName = titulo ? titulo : "Populares";
 
   return (
@@ -32,7 +34,6 @@ export default function Carousel({ URL, titulo, category }) {
           </select>
         )}
       </div>
-      {/* {isLoading && <p>Carregando...</p>} */}
       <Splide
         options={{
           perPage: 5,
@@ -55,13 +56,14 @@ export default function Carousel({ URL, titulo, category }) {
           },
         }}
       >
+        {isLoading && <CardSkeleton className={styles.card} cards={5} />}
         {movieList &&
           movieList.map((movie) => (
-            <SplideSlide key={movie.id}>
-              <Card movie={movie} cardClass={styles.card} />
-            </SplideSlide>
+              <SplideSlide key={movie.id}>
+                <Card movie={movie} cardClass={styles.card} />
+              </SplideSlide>
           ))}
       </Splide>
     </div>
   );
-}
+};

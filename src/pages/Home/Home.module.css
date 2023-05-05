@@ -39,7 +39,7 @@
 }
 
 .searchForm input::placeholder {
-  color: var(--gray-200);
+  color: var(--gray-300);
 }
 
 .searchForm:focus-within {

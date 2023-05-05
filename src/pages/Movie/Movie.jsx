@@ -1,13 +1,16 @@
 import styles from "./Movie.module.css";
-import useDocumentTitle from "../../hooks/useDocumentTitle";
-import useFetch from "../../hooks/useFetch";
-
-import { IoCalendarClearOutline, IoStar, IoTimeOutline } from "react-icons/io5";
-import { useParams } from "react-router-dom";
-
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Carousel from "../../components/Carousel/Carousel";
+import Image from "../../assets/hero.jpg";
+import posterImage from "../../assets/placeholder.svg";
+
+import useDocumentTitle from "../../hooks/useDocumentTitle";
+import useFetch from "../../hooks/useFetch";
+import { MovieSkeleton } from "../../components/Skeleton/Skeleton";
+
+import { IoCalendarClearOutline, IoStar, IoTimeOutline } from "react-icons/io5";
+import { useParams } from "react-router-dom";
 
 const movieURL = import.meta.env.VITE_MOVIE;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -49,22 +52,25 @@ export default function Movie({URL}) {
 
   useDocumentTitle(title);
 
+  const ImageChecked = `${imgURL}original/${backdrop_path}` === `${imgURL}original/null` ? Image : `${imgURL}original/${backdrop_path}`;
+  const posterChecked = `${imgURL}w500/${poster_path}` === `${imgURL}w500/null` ? posterImage : `${imgURL}w500/${poster_path}`;
+
   return (
     <>
       <Header />
-      {isLoading && <p>Carregando...</p>}
+      {isLoading && <MovieSkeleton/>} 
       <section>
         <div className={styles.wrapper}>
           <article className={styles.backdrop}>
             <img
-              src={`${imgURL}original/${backdrop_path}`}
+              src={ImageChecked}
               alt={`${movie.title} Imagem de fundo`}
-            />
+              />
           </article>
           <article className={styles.moviebox}>
             <img
               className={styles.poster}
-              src={`${imgURL}w500/${poster_path}`}
+              src={posterChecked}
               alt={title}
             />
             <div>
@@ -103,18 +109,18 @@ export default function Movie({URL}) {
                   <span>
                     Director:
                     {prodution &&
-                      Object.values(prodution).map((d) => (
-                        <span className={styles.director} key={d.id} title={`Director: ${d.name}`}>
-                          {d.name}
+                      Object.values(prodution).map((director) => (
+                        <span className={styles.director} key={director.id} title={`Director: ${director.name}`}>
+                          {director.name}
                         </span>
                       ))}
                   </span>
                   <span>
                     Elenco:
                     {actor &&
-                      Object.values(actor).map((a) => (
-                        <span className={styles.actor} key={a.id} title={`Actor: ${a.name}`}>
-                          {a.name},
+                      Object.values(actor).map((actor) => (
+                        <span className={styles.actor} key={actor.id} title={`Actor: ${actor.name}`}>
+                          {actor.name},
                         </span>
                       ))}
                   </span>

@@ -6,6 +6,7 @@ import Card from "../../components/Card/Card";
 import styles from "./Search.module.css";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import CardSkeleton from "../../components/Skeleton/Skeleton";
 
 const apiKey = import.meta.env.VITE_API_KEY;
 const searchURL = import.meta.env.VITE_SEARCH;
@@ -41,6 +42,7 @@ export default function Search() {
         </h2>
 
         <section>
+          {movies.length === 0 && <CardSkeleton cards={10} />}
           {movies.length > 0 &&
             movies.map((movie) => (
               <Card cardClass={styles.card} movie={movie} key={movie.id} />

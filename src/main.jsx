@@ -11,7 +11,7 @@ import ErrorPage from "./pages/Error/Error";
 import { SkeletonTheme } from "react-loading-skeleton";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <SkeletonTheme baseColor="#77767b" highlightColor="#c0bfbc">
+  <SkeletonTheme baseColor="#292929" highlightColor="#3b3b3b">
     <React.StrictMode>
       <BrowserRouter>
         <Routes>

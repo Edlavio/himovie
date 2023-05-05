@@ -1,0 +1,18 @@
+<svg width="300" height="500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" preserveAspectRatio="none">
+      <defs>
+        <style type="text/css">
+          #holder text {
+            fill: #ffffff;
+            font-family: 'Inter', sans-serif;
+            font-size: 28px;
+            font-weight: 500;
+          }
+        </style>
+      </defs>
+      <g id="holder">
+        <rect width="100%" height="100%" fill="#5c5c5c"/>
+        <g>
+          <text text-anchor="middle" x="50%" y="50%" dy=".3em">Sem imagem</text>
+        </g>
+      </g>
+    </svg>

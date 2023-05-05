@@ -5,7 +5,7 @@
   justify-content: space-between;
   align-items: center;
   background: transparent;
-  border-top: 1px solid var(--gray-800);
+  border-top: 1px solid var(--gray-700);
   padding: var(--container);
   margin-top: 4rem;
   font-size: 0.875rem;
