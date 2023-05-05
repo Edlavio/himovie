@@ -3,11 +3,11 @@ import { IoCalendarClearOutline, IoStar, IoTimeOutline } from "react-icons/io5";
 
 import { useParams } from "react-router-dom";
 import useDocumentTitle from "../hooks/useDocumentTitle";
+import useFetch from "../hooks/useFetch";
 
-import Carousel from "../components/Carousel";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import useFetch from "../hooks/useFetch";
+import Carousel from "../components/Carousel";
 
 const movieURL = import.meta.env.VITE_MOVIE;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -127,8 +127,7 @@ export default function Movie({URL}) {
           </article>
         </div>
 
-        <Carousel URL={recommended}/>
-        {console.log(URL)}
+        <Carousel titulo="Sugestões" URL={recommended} />
       </section>
       <Footer />
     </>

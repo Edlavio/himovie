@@ -62,7 +62,7 @@ export default function Home() {
           </div>
         </article>
 
-          <Carousel />
+          <Carousel category={false} />
       </section>
       <Footer />
     </>

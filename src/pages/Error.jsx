@@ -1,19 +1,24 @@
 import { Link } from "react-router-dom";
 import styles from "./Error.module.css";
-import Image from "../assets/404.svg";
+import ErrorImage from "../assets/404.json";
 import useDocumentTitle from "../hooks/useDocumentTitle";
+import Lottie from "lottie-react";
 
 export default function ErrorPage() {
-  useDocumentTitle("Erro 404 Página não encontrada");
+  useDocumentTitle("Página não encontrada");
+
+  const style = {
+    maxWidth: "500px",
+  };
 
   return (
     <section className={styles.container}>
-      <img src={Image} />
+      <Lottie animationData={ErrorImage} style={style} title="Erro 404 Lottie Animação" />
       <div>
         <span>
           Verifique sua URL ou volte para a página de início do HiMovie.
         </span>
-        <Link to="/">Voltar</Link>
+        <Link title="Voltar" to="/">Voltar</Link>
       </div>
     </section>
   );

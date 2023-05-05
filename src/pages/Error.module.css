@@ -5,54 +5,36 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
   font-family: 'Inter', sans-serif;
 }
 
-.container img {
-  width: 300px;
-  height: 100%;
-  position: relative;
-  bottom: 2rem;
-}
 .container div {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  position: absolute;
-  bottom: 3rem;
-  gap: 1.5rem;
+  gap: 1rem;
   text-align: center;
+  padding: 0 1rem;
 }
 
 .container span {
-  padding: 0 1rem;
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 600;
   line-height: 150%;
-  margin: 0;
 }
 
 .container a {
   background-color: var(--red-300);
-  width: 150px;
-  text-align: center;
-  padding: 1rem 1rem;
+  color: var(--white);
+  width: 160px;
+  height: 50px;
+  padding: 1rem 0;
   border-radius: 8px;
   font-size: 1rem;
   font-weight: bold;
-  color: var(--white);
-  transition: background-color 150ms ease-in-out;
+  transition: background-color 250ms ease-in-out;
 }
 
 .container a:hover {
   background: var(--red-500);
-}
-
-@media screen and (max-width: 500px){
-  .container img {
-    width: 90%;
-    bottom: 4rem;
-  }  
 }

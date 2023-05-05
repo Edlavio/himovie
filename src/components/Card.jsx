@@ -26,7 +26,6 @@ export default function Card({
 
   function handleResetScroll() {
     window.scrollTo(0,0);
-    console.log('Card Action')
   }
 
   return (
