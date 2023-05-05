@@ -1,9 +1,7 @@
-import { useState, useEffect } from "react";
-import useFetch from "../hooks/useFetch";
-
 import styles from "./Carousel.module.css";
+import Card from "../Card/Card";
+import useFetch from "../../hooks/useFetch";
 
-import Card from "./Card";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 
@@ -13,7 +11,7 @@ const apiKey = import.meta.env.VITE_API_KEY;
 export default function Carousel({ URL, titulo, category }) {
   const url = URL ? URL : `${movieURL}popular?${apiKey}&language=pt-PT`;
 
-  const { movie } = useFetch(url);
+  const { movie, isLoading } = useFetch(url);
 
   const movieList = movie.results;
   const categoryName = titulo ? titulo : "Populares";
@@ -34,6 +32,7 @@ export default function Carousel({ URL, titulo, category }) {
           </select>
         )}
       </div>
+      {/* {isLoading && <p>Carregando...</p>} */}
       <Splide
         options={{
           perPage: 5,

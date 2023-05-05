@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import styles from "./Card.module.css";
+import { Link } from "react-router-dom";
 import { IoStar } from "react-icons/io5";
 
 const imgURL = import.meta.env.VITE_IMG;
@@ -51,7 +51,7 @@ export default function Card({
         <div className={`${styles.cardInfo} ${cardInfoClass}`}>
           <span title={`Ano de lançamento: ${year}`}>{year}</span>
           <span title={`Média de votos: ${movie.vote_average}`}>
-            <IoStar size={14} weight="fill" className="text-yellow-500" />
+            <IoStar size={14} weight="fill"/>
             {formatNumber(`${movie.vote_average}`)}
           </span>
         </div>

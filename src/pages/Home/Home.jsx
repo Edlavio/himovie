@@ -3,10 +3,10 @@ import styles from "./Home.module.css";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Carousel from "../components/Carousel";
-import useDocumentTitle from "../hooks/useDocumentTitle";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Carousel from "../../components/Carousel/Carousel";
+import useDocumentTitle from "../../hooks/useDocumentTitle";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 import { IoSearchOutline } from "react-icons/io5";
 
 export default function Home() {

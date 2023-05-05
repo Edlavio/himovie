@@ -1,13 +1,13 @@
 import styles from "./Movie.module.css";
+import useDocumentTitle from "../../hooks/useDocumentTitle";
+import useFetch from "../../hooks/useFetch";
+
 import { IoCalendarClearOutline, IoStar, IoTimeOutline } from "react-icons/io5";
-
 import { useParams } from "react-router-dom";
-import useDocumentTitle from "../hooks/useDocumentTitle";
-import useFetch from "../hooks/useFetch";
 
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Carousel from "../components/Carousel";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import Carousel from "../../components/Carousel/Carousel";
 
 const movieURL = import.meta.env.VITE_MOVIE;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -15,7 +15,7 @@ const imgURL = import.meta.env.VITE_IMG;
 
 export default function Movie({URL}) {
   const { id } = useParams();
-  const { movie } = useFetch(`${movieURL}${id}?${apiKey}&language=pt-BR`);
+  const { movie, isLoading } = useFetch(`${movieURL}${id}?${apiKey}&language=pt-BR`);
   const { movie: item } = useFetch(`${movieURL}${id}/credits?${apiKey}&language=pt-BR`);
 
   const productionList = item.crew;
@@ -52,6 +52,7 @@ export default function Movie({URL}) {
   return (
     <>
       <Header />
+      {isLoading && <p>Carregando...</p>}
       <section>
         <div className={styles.wrapper}>
           <article className={styles.backdrop}>

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import useDocumentTitle from "../hooks/useDocumentTitle";
+import useDocumentTitle from "../../hooks/useDocumentTitle";
 
-import Card from "../components/Card";
+import Card from "../../components/Card/Card";
 import styles from "./Search.module.css";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 
 const apiKey = import.meta.env.VITE_API_KEY;
 const searchURL = import.meta.env.VITE_SEARCH;

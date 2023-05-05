@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./Error.module.css";
-import ErrorImage from "../assets/404.json";
-import useDocumentTitle from "../hooks/useDocumentTitle";
+import ErrorImage from "../../assets/404.json";
+import useDocumentTitle from "../../hooks/useDocumentTitle";
 import Lottie from "lottie-react";
 
 export default function ErrorPage() {
