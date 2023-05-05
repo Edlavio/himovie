@@ -1,25 +1,22 @@
-<!-- Please update value in the {}  -->
+# HiMovie
 
-<h1 align="center" style="font-weight: bold">HiMovie</h1>
+#### Made using the **[TMDB](https://www.themoviedb.org/)** API
 
-  <h2 align="center">
-    <a href="https://himovie1.vercel.app/">
-      Demo 👀
-    </a>
-  </h2>
+## [Demo 👀](https://himovie1.vercel.app/)
+      
 
 ## Table of Contents
 
 - [Overview](#overview)
-- [Built With](#🛠️built-with)
-- [Features](#⚙️features)
-- [How To Use](#📎how-to-use)
-- [Contact](#📣contact)
-- [License](#📝license)
+- [Built With](#built-with)
+- [Features](#features)
+- [How To Use](#how-to-use)
+- [Contact](#contact)
+- [License](#license)
 
 ## Overview
 
-[![HiMovie](https://us-east-1.tixte.net/uploads/edlavio.tixte.co/himovie.gif)](https://himovie1.vercel.app/)
+![HiMovie](https://us-east-1.tixte.net/uploads/edlavio.tixte.co/himovie.gif)
 
 ## 🛠️Built With
 
