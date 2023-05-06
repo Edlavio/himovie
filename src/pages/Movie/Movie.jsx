@@ -103,8 +103,8 @@ export default function Movie({URL}) {
                   </span>
                 </div>
                 <div className={styles.creditos}>
-                  <span title={`Ano de lançamento: ${release_date}`}>
-                    Lançado: {release_date}
+                  <span title={`Ano de lançamento: ${new Date(release_date).toLocaleDateString('pt-PT')}`}>
+                    Lançado: {new Date(release_date).toLocaleDateString('pt-PT')}
                   </span>
                   <span>
                     Director:
