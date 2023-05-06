@@ -1,4 +1,7 @@
 # HiMovie
+![GitHub](https://img.shields.io/github/license/Edlavio/Himovie)
+![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/Edlavio/HiMovie/react)
+![GitHub top language](https://img.shields.io/github/languages/top/Edlavio/HiMovie)
 
 #### Made using the **[TMDB](https://www.themoviedb.org/)** API
 
