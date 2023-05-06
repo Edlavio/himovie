@@ -31,7 +31,7 @@
 ## ⚙️Features
 
 - Add a category selector in the carousel
-- Maybe move the project to Next.js and TypeScript who knows 🙃 
+- Maybe migrate the project to Next.js and TypeScript who knows 🙃 
 
 ## 📎How To Use
 
